@@ -1,6 +1,7 @@
-package com.driver.models;
+package com.example.library.studentlibrary.models;
 
 public enum TransactionStatus {
     SUCCESSFUL,
-    FAILED
+    FAILED,
+    PENDING
 }
