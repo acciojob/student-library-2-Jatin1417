@@ -1,9 +1,7 @@
 package com.driver.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
+import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
@@ -12,7 +10,7 @@ import java.util.Date;
 import java.util.List;
 
 @Entity
-
+@Table(name = "card")
 public class Card {
 
     @Id
@@ -38,6 +36,14 @@ public class Card {
 
     public Card(){
         this.cardStatus = CardStatus.ACTIVATED;
+    }
+
+    public Card(Student student, Date createdOn, Date updatedOn, CardStatus cardStatus, List<Book> books) {
+        this.student = student;
+        this.createdOn = createdOn;
+        this.updatedOn = updatedOn;
+        this.cardStatus = cardStatus;
+        this.books = books;
     }
 
     public int getId() {

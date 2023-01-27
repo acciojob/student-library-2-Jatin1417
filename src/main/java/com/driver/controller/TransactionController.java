@@ -1,6 +1,6 @@
 package com.driver.controller;
 
-import com.driver.models.Transaction;
+import com.driver.repositories.TransactionRepository;
 import com.driver.services.TransactionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -9,22 +9,22 @@ import org.springframework.web.bind.annotation.*;
 
 //Add required annotations
 @RestController
-@RequestMapping("/transaction")
+@RequestMapping("transaction")
 public class TransactionController {
+
     @Autowired
     TransactionService transactionService;
-    //Add required annotations
-    @PostMapping("/issueBook")
 
+    //Add required annotations
+    @GetMapping("/issue_book")
     public ResponseEntity issueBook(@RequestParam("cardId") int cardId, @RequestParam("bookId") int bookId) throws Exception{
-        String externalTransactionId = transactionService.issueBook(cardId, bookId);
-       return new ResponseEntity<>("transaction completed, Here is your transactionId"+ externalTransactionId, HttpStatus.ACCEPTED);
+        transactionService.issueBook(cardId, bookId);
+       return new ResponseEntity<>("transaction completed", HttpStatus.ACCEPTED);
     }
 
     //Add required annotations
-    @PostMapping("/returnBook")
     public ResponseEntity returnBook(@RequestParam("cardId") int cardId, @RequestParam("bookId") int bookId) throws Exception{
-        Transaction externalTransaction = transactionService.returnBook(cardId, bookId);
-        return new ResponseEntity<>("transaction completed, Here is your transactionId" + externalTransaction.getTransactionId(), HttpStatus.ACCEPTED);
+        transactionService.returnBook(cardId, bookId);
+        return new ResponseEntity<>("transaction completed", HttpStatus.ACCEPTED);
     }
 }

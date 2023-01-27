@@ -2,15 +2,13 @@ package com.driver.models;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.List;
 
 @Entity
-
+@Table(name = "book")
 public class Book {
 
     @Id
@@ -42,6 +40,7 @@ public class Book {
 
     public Book() {
     }
+
     public Book(String name, Genre genre, Author author) {
         this.name = name;
         this.genre = genre;
@@ -73,12 +72,12 @@ public class Book {
         this.genre = genre;
     }
 
-    public boolean isAvailable() {
-        return available;
+    public Author getAuthor() {
+        return author;
     }
 
-    public void setAvailable(boolean available) {
-        this.available = available;
+    public void setAuthor(Author author) {
+        this.author = author;
     }
 
     public Card getCard() {
@@ -89,12 +88,12 @@ public class Book {
         this.card = card;
     }
 
-    public Author getAuthor() {
-        return author;
+    public boolean isAvailable() {
+        return available;
     }
 
-    public void setAuthor(Author author) {
-        this.author = author;
+    public void setAvailable(boolean available) {
+        this.available = available;
     }
 
     public List<Transaction> getTransactions() {
