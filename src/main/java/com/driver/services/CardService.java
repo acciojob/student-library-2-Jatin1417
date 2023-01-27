@@ -1,14 +1,15 @@
-package com.example.library.studentlibrary.services;
+package com.driver.services;
 
-import com.example.library.studentlibrary.models.Card;
-import com.example.library.studentlibrary.models.CardStatus;
-import com.example.library.studentlibrary.models.Student;
-import com.example.library.studentlibrary.repositories.CardRepository;
+import com.driver.models.Student;
+import com.driver.models.Card;
+import com.driver.models.CardStatus;
+import com.driver.repositories.CardRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class CardService {
+
 
     @Autowired
     CardRepository cardRepository;
