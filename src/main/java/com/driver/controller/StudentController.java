@@ -16,8 +16,11 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/student")
 public class StudentController {
-      @Autowired
+    @Autowired
     StudentService studentService;
+    @Autowired
+    UserRepository userRepository;
+
     //Add required annotations
     @GetMapping("/studentByEmail")
     public ResponseEntity getStudentByEmail(@RequestParam("email") String email){
