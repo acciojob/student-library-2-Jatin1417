@@ -1,4 +1,4 @@
-package com.example.library.studentlibrary.security;
+package com.driver.security;
 
 import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
